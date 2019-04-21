@@ -1,0 +1,36 @@
+version: '3'
+services:
+    api:
+        build: ./
+        ports:
+            - "5000:5000"
+        env_file:
+            - ./.env
+        environment:
+            APP_SETTINGS: development
+            DATABASE_URL: postgresql://postgres:postgres@postgres:5432/dudewhereto_development?sslmode=disable
+            TEST_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/dudewhereto_test?sslmode=disable
+        depends_on:
+            - postgres
+        volumes:
+            - .:/app
+        command: gunicorn -w 4 --bind :5000 wsgi:app --reload --log-level debug
+    postgres:
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: dudewhereto_development
+        volumes:
+            - postgresdb:/var/lib/postgresql/data
+    nginx:
+        build: ./nginx
+        restart: always
+        ports:
+            - "8080:8080"
+        depends_on:
+            - api
+volumes:
+    postgresdb:
+        driver: local
+
