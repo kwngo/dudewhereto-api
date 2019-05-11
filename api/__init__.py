@@ -30,13 +30,13 @@ def create_app(config):
     CORS(app, supports_credentials=True)
 
     from .users import Users
-    from .games import Games
-    from .locations import Locations
     from .auth import Auth
+    from .shops import Shops
 
     api = Api(app)
     api.add_resource(Users, '/users')
     api.add_resource(Auth, '/auth')
+    api.add_resource(Shops, '/shops')
 
 
     @app.route("/")
