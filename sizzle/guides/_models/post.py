@@ -1,7 +1,7 @@
 from sizzle.base import Base, db
 
-class Shop(Base):
-    __tablename__ = 'shops'
+class Post(Base):
+    __tablename__ = 'posts'
     name = db.Column(db.String(), nullable=False, unique=True, index=True)
     url = db.Column(db.String, nullable=False)
     description = db.Column(db.String(), nullable=False)

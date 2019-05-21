@@ -8,7 +8,7 @@ parser.add_argument('description')
 parser.add_argument('thumbnail')
 
 
-class Shops(Resource):
+class Posts(Resource):
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('name', type=str)
@@ -24,11 +24,11 @@ class Shops(Resource):
         thumbnail = args['thumbnail']
 
         try:
-            shop = Shop(name=name, url=url, description=description, thumbnail=thumbnail)
-            db.session.add(shop)
+            post = Post(name=name, url=url, description=description, thumbnail=thumbnail)
+            db.session.add(post)
             db.session.commit()
-            return {'shop': shop}
+            return {'post': post}
         except SQLAlchemyError as e:
-            LOG.error(f'Shop: Shop could not be created: {e}')
+            LOG.error(f'Post: Post could not be created: {e}')
 
 

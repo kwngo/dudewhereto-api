@@ -31,12 +31,12 @@ def create_app(config):
 
     from .users import Users
     from .auth import Auth
-    from .shops import Shops
+    from .posts import Posts
 
     api = Api(app)
     api.add_resource(Users, '/users')
     api.add_resource(Auth, '/auth')
-    api.add_resource(Shops, '/shops')
+    api.add_resource(Posts, '/posts')
 
 
     @app.route("/")
