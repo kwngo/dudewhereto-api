@@ -1,11 +1,11 @@
 import flask_login
-from dudewhereto.base import db
+from sizzle.base import db
 from logging import getLogger
 from flask import abort
 from flask_restful import Resource, reqparse
 from flask_bcrypt import check_password_hash
 
-LOG = getLogger('dudewhereto')
+LOG = getLogger('sizzle')
 
 parser = reqparse.RequestParser()
 parser.add_argument('email', type=str)

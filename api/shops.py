@@ -1,4 +1,4 @@
-from dudewhereto.base import db
+from sizzle.base import db
 from logging import getLogger
 
 parser = reqparse.RequestParser()

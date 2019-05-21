@@ -1,5 +1,5 @@
 import flask_login
-from dudewhereto.base import db
+from sizzle.base import db
 from logging import getLogger
 from flask import session, abort
 from flask_restful import Resource, reqparse

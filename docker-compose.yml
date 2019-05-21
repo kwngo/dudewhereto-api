@@ -8,8 +8,8 @@ services:
             - ./.env
         environment:
             APP_SETTINGS: development
-            DATABASE_URL: postgresql://postgres:postgres@postgres:5432/dudewhereto_development?sslmode=disable
-            TEST_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/dudewhereto_test?sslmode=disable
+            DATABASE_URL: postgresql://postgres:postgres@postgres:5432/sizzle_development?sslmode=disable
+            TEST_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/sizzle_test?sslmode=disable
         depends_on:
             - postgres
         volumes:
@@ -20,7 +20,7 @@ services:
         ports:
             - "5432:5432"
         environment:
-            POSTGRES_DB: dudewhereto_development
+            POSTGRES_DB: sizzle_development
         volumes:
             - postgresdb:/var/lib/postgresql/data
     nginx:

@@ -1,4 +1,4 @@
-from dudewhereto.base import Base, db
+from sizzle.base import Base, db
 
 class Shop(Base):
     __tablename__ = 'shops'
